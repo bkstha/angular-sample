@@ -1,0 +1,37 @@
+<p *ngIf="!gameForm.valid">{{errorMessage}}</p>
+<form [formGroup]="gameForm" (submit)="onSubmit()">
+    <input type="hidden"  formControlName = "gameId">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="teamName1">Team Name</label>
+        <input  type="text" class="form-control" formControlName = "teamName1" placeholder="Team name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="teamName2">Team Name</label>
+        <input type="text" class="form-control" formControlName = "teamName2" placeholder="Team name">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="teamScore1">Score</label>
+            <input  type="number" class="form-control" formControlName = "teamScore1" placeholder="Score">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="teamScore2">Score</label>
+            <input type="number" class="form-control" formControlName= "teamScore2" placeholder="Score">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" formControlName = "date" placeholder="Score">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <button class="btn btn-primary" id="submit" type="submit" [disabled]="!gameForm.valid">Enter Result</button>
+        </div>
+    </div>
+</form>
