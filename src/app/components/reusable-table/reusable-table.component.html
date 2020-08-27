@@ -1,0 +1,16 @@
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th *ngFor="let key of colData"> {{key.header}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let record of gridData">
+                <td *ngFor="let data of colData">
+                    <span>{{record[data.field]}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

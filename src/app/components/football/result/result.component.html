@@ -2,8 +2,9 @@
 <div class="list" *ngFor="let game of games">
     <h3>{{game.date}}</h3>
     <div *ngFor="let data of game.games">
-        <p [routerLink]="['/football/edit', data.gameId]"><span [ngClass]="isWinnerA(data.teamScore1, data.teamScore2)">{{data.teamName1}}({{data.teamScore1}})</span> vs 
-            <span [ngClass]="isWinnerB(data.teamScore1, data.teamScore2)">{{data.teamName2}}({{data.teamScore2}})</span></p>
+        <p [routerLink]="['/football/edit/', data.gameId]"><span [ngClass]="isWinnerA(data.teamScore1, data.teamScore2)">{{data.teamName1}}({{data.teamScore1}})</span> vs 
+            <span [ngClass]="isWinnerB(data.teamScore1, data.teamScore2)">{{data.teamName2}}({{data.teamScore2}})</span>
+        </p>
     </div>
     
 </div>
