@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { FootballService } from 'src/app/services/football.service';
 @Component({
   selector: 'app-league-table',
-  templateUrl: './league-table.component.html',
-  styleUrls: ['./league-table.component.css']
+  templateUrl: './league-table.component.html'
 })
 export class LeagueTableComponent {
   constructor(private footballService: FootballService) { }

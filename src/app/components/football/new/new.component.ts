@@ -7,8 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new',
-  templateUrl: './new.component.html',
-  styleUrls: ['./new.component.css']
+  templateUrl: './new.component.html'
 })
 export class NewComponent implements OnInit {
   constructor(private fb: FormBuilder,
