@@ -1,32 +1,19 @@
-<p>football component!</p>
 <div class="container">
-  <div class="head">
-    <button
-      type="button"
-      class="btn btn-light"
-      (click)="redirectTothisPage('results')"
-      routerLinkActive="active"
-    >
-      Results
-    </button>
-    <button
-      type="button"
-      class="btn btn-light"
-      (click)="redirectTothisPage('new')"
-      routerLinkActive="active"
-    >
-      New
-    </button>
-    <button
-      type="button"
-      class="btn btn-light"
-      (click)="redirectTothisPage('league-table')"
-      routerLinkActive="active"
-    >
-      League Table
-    </button>
-  </div>
-  <div class="body">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" (click)="redirectTothisPage('results')" routerLinkActive="active">Results</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="redirectTothisPage('new')" routerLinkActive="active">New</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="redirectTothisPage('league-table')" routerLinkActive="active">League
+                        Tables</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <router-outlet></router-outlet>
-  </div>
 </div>

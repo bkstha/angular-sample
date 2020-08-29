@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FootballService } from 'src/app/services/football.service';
+import { FootballService } from 'src/app/services/football/football.service';
 
 @Component({
   selector: 'app-result',

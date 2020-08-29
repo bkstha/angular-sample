@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Game } from './form';
+import { Game } from '../../../services/football/form';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { FootballService } from '../../../services/football.service';
+import { FootballService } from '../../../services/football/football.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

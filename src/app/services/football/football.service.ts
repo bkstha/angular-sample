@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Game } from '../components/football/new/form';
-import { StorageService } from 'src/app/services/storage.service';
+import { Game } from './form';
+import { StorageService } from '../storage/storage.service';
 
 @Injectable({
   providedIn: 'root'

@@ -21,7 +21,7 @@ export class Game implements IGame {
 
 
     constructor(){}
-    setGame(game: IGame) {
+    public setGame(game: IGame) {
         this.gameId = game.gameId;
         this.teamName1 = game.teamName1;
         this.teamName2 = game.teamName2;

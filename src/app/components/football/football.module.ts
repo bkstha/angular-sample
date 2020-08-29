@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { ResultComponent } from './result/result.component';
-import { NewComponent } from 'src/app/components/football/new/new.component';
-import { LeagueTableComponent } from 'src/app/components/football/league-table/league-table.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { NewComponent } from './new/new.component';
+import { LeagueTableComponent } from './league-table/league-table.component';
 import { FootballComponent } from './football.component';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { ReusableTableComponent } from '../reusable-table/reusable-table.component';
+import { SharedModule } from '../../shared/shared.module';
+import { FootballRoutingModule } from './football-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,15 +13,12 @@ import { ReusableTableComponent } from '../reusable-table/reusable-table.compone
     NewComponent,
     LeagueTableComponent,
     FootballComponent,
-    ReusableTableComponent
   ],
   imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    AppRoutingModule
+    FootballRoutingModule,
+    SharedModule,
   ],
   exports: [
-    // FootballComponent
   ]
 })
 export class FootballModule { }

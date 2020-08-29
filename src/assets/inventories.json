@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "name": "paper",
+        "stock": 10
+    },
+    {
+        "id": 2,
+        "name": "pen",
+        "stock": 10
+    },
+    {
+        "id": 3,
+        "name": "pencil",
+        "stock": 10
+    },
+    {
+        "id": 4,
+        "name": "phone",
+        "stock": 10
+    },
+    {
+        "id": 5,
+        "name": "bottle",
+        "stock": 10
+    },
+    {
+        "id": 6,
+        "name": "laptop",
+        "stock": 10
+    },
+    {
+        "id": 7,
+        "name": "monitor",
+        "stock": 10
+    },
+    {
+        "id": 8,
+        "name": "desk",
+        "stock": 10
+    },
+    {
+        "id": 9,
+        "name": "fan",
+        "stock": 10
+    },
+    {
+        "id": 10,
+        "name": "speaker",
+        "stock": 10
+    }
+]

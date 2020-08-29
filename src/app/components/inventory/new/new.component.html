@@ -1,0 +1,25 @@
+<p *ngIf="!inventoryForm.valid">{{errorMessage}}</p>
+<form [formGroup]="inventoryForm" (submit)="onSubmit()">
+    <input type="hidden" formControlName="id">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Inventory Name">
+        </div>
+
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="stock">Stock</label>
+            <input type="number" class="form-control" formControlName="stock" placeholder="Stock">
+        </div>
+
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <button class="btn btn-primary" id="submit" type="submit" [disabled]="!inventoryForm
+        .valid">Save</button>
+        </div>
+    </div>
+</form>

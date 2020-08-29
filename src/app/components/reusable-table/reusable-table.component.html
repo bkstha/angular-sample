@@ -3,12 +3,17 @@
         <thead>
             <tr>
                 <th *ngFor="let key of colData"> {{key.header}}</th>
+                <th *ngIf="edit || delete">Setting</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let record of gridData">
                 <td *ngFor="let data of colData">
                     <span>{{record[data.field]}}</span>
+                </td>
+                <td *ngIf="edit || delete">
+                    <a *ngIf="edit" (click)="editItem(record.id)" class="btn btn-primary btn-sm">Edit</a>
+                    <a *ngIf="delete" (click)="deleteItem(record.id)" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
         </tbody>
