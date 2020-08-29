@@ -1,9 +1,21 @@
 <div class="container">
-    <div class="head">
-        <button type="button" class="btn btn-light" routerLink="/football/" routerLinkActive="active">Football</button>
-        <button type="button" class="btn btn-light" routerLink="/inventory/" routerLinkActive="active">Inventory</button>
-    </div>
-    <div class="body">
-        <router-outlet></router-outlet>
-    </div>
+  <div class="head">
+    <button
+      type="button"
+      class="btn btn-light"
+      (click)="redirectTothisPage('football')"
+    >
+      Football
+    </button>
+    <button
+      type="button"
+      class="btn btn-light"
+      (click)="redirectTothisPage('inventory')"
+    >
+      Inventory
+    </button>
+  </div>
+  <div class="body">
+    <router-outlet></router-outlet>
+  </div>
 </div>

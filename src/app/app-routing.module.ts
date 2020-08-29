@@ -8,24 +8,29 @@ import { FootballComponent } from './components/football/football.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 
 const routes: Routes = [
-
-  { path: '', component: AppComponent, pathMatch: 'full' },
+  { path: 'inventory', component: InventoryComponent },
   {
-    path: 'football', component: FootballComponent, pathMatch: 'full',
+    path: 'football',
+    component: FootballComponent,
     children: [
-      { path: '', redirectTo: 'results', pathMatch: 'full' },
-      { path: 'results', component: ResultComponent, outlet: 'football' },
-      { path: 'football/results', component: ResultComponent, outlet: 'football' },
-      { path: 'new', component: NewComponent, outlet: 'football' },
-      { path: 'edit/:id', component: NewComponent, outlet: 'football' },
-      { path: 'league-table', component: LeagueTableComponent, outlet: 'football' },
-    ]
+      {
+        path: 'results',
+        component: ResultComponent,
+      },
+      { path: 'new', component: NewComponent },
+      { path: 'edit/:id', component: NewComponent },
+      {
+        path: 'league-table',
+        component: LeagueTableComponent,
+      },
+      { path: '**', redirectTo: 'results' },
+    ],
   },
-  { path: 'inventory', component: InventoryComponent, pathMatch: 'full' },
+  { path: '**', redirectTo: 'football' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

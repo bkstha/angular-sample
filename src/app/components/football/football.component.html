@@ -1,14 +1,32 @@
 <p>football component!</p>
 <div class="container">
-    <div class="head">
-        <button type="button" class="btn btn-light" routerLink="/football/results"
-            routerLinkActive="active">Results</button>
-        <button type="button" class="btn btn-light" routerLink="/football/new" routerLinkActive="active">New</button>
-        <button type="button" class="btn btn-light" routerLink="/football/league-table"
-            routerLinkActive="active">League
-            Table</button>
-    </div>
-    <div class="body">
-        <router-outlet name="football"></router-outlet>
-    </div>
+  <div class="head">
+    <button
+      type="button"
+      class="btn btn-light"
+      (click)="redirectTothisPage('results')"
+      routerLinkActive="active"
+    >
+      Results
+    </button>
+    <button
+      type="button"
+      class="btn btn-light"
+      (click)="redirectTothisPage('new')"
+      routerLinkActive="active"
+    >
+      New
+    </button>
+    <button
+      type="button"
+      class="btn btn-light"
+      (click)="redirectTothisPage('league-table')"
+      routerLinkActive="active"
+    >
+      League Table
+    </button>
+  </div>
+  <div class="body">
+    <router-outlet></router-outlet>
+  </div>
 </div>

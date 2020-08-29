@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Game } from './form'
+import { Game } from './form';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { FootballService } from '../../../services/football.service'
+import { FootballService } from '../../../services/football.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new',
-  templateUrl: './new.component.html'
+  templateUrl: './new.component.html',
 })
 export class NewComponent implements OnInit {
-  constructor(private fb: FormBuilder,
+  constructor(
+    private fb: FormBuilder,
     private readonly footballService: FootballService,
     private readonly route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {}
 
   private activeId = '';
   public errorMessage: string = '';
@@ -41,8 +42,14 @@ export class NewComponent implements OnInit {
     this.gameForm = this.fb.group({
       teamName1: [this.game.teamName1, Validators.required],
       teamName2: [this.game.teamName2, Validators.required],
-      teamScore1: [this.game.teamScore1, [Validators.required, Validators.min(0)]],
-      teamScore2: [this.game.teamScore2, [Validators.required, Validators.min(0)]],
+      teamScore1: [
+        this.game.teamScore1,
+        [Validators.required, Validators.min(0)],
+      ],
+      teamScore2: [
+        this.game.teamScore2,
+        [Validators.required, Validators.min(0)],
+      ],
       date: [this.game.date, Validators.required],
       gameId: [this.game.gameId],
     });
@@ -61,5 +68,4 @@ export class NewComponent implements OnInit {
   clearForm() {
     this.gameForm.reset();
   }
-
 }
