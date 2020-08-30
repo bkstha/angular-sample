@@ -1,15 +1,14 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reusable-table',
   templateUrl: './reusable-table.component.html',
 })
 export class ReusableTableComponent implements OnInit {
-  @Input() gridData: any;
-  @Input() colData: any;
-  @Input() edit = false;
-  @Input() delete = false;
+  @Input() public gridData: any;
+  @Input() public colData: any;
+  @Input() public edit = false;
+  @Input() public delete = false;
 
   @Output() public editActionClicked: EventEmitter<any> = new EventEmitter<
     any
@@ -18,10 +17,7 @@ export class ReusableTableComponent implements OnInit {
     any
   >();
 
-  constructor(
-    private readonly router: Router,
-    private readonly activatedRoute: ActivatedRoute
-  ) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
