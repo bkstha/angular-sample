@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { InventoryService } from '../../../services/inventory/inventory.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -6,13 +6,17 @@ import { Router, ActivatedRoute } from '@angular/router';
   selector: 'app-list',
   templateUrl: './list.component.html',
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
   constructor(
     private inventoryService: InventoryService,
     private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute
-  ) {}
+  ) { }
+  ngOnInit(): void {
+    this.getInventoryList();
+  }
   public editRoute: string = 'edit';
+  public inventoryList: any;
 
   public colData = [
     { field: 'index', header: '#' },
@@ -21,13 +25,15 @@ export class ListComponent {
   ];
 
   public getInventoryList() {
-    console.log(this.inventoryService.getInventoryList());
-    return this.inventoryService.getInventoryList();
+    this.inventoryService.getInventoryList().subscribe(result => {
+      this.inventoryList = result.map((obj, index) => ({ ...obj, index: (index + 1) }));
+    });
   }
 
   public deleteInventory(id: any): void {
     console.log('deleting item with id: ' + id);
     this.inventoryService.deleteInventory(id);
+    this.getInventoryList();
   }
 
   public editActionClicked(id: any): void {

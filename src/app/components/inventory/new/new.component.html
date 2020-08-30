@@ -1,4 +1,3 @@
-<p *ngIf="!inventoryForm.valid">{{errorMessage}}</p>
 <form [formGroup]="inventoryForm" (submit)="onSubmit()">
     <input type="hidden" formControlName="id">
     <div class="form-row">

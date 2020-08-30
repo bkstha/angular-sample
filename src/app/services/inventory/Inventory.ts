@@ -11,8 +11,8 @@ export class Inventory implements IInventory {
     constructor() { }
 
     id: number;
-    name: string;
-    stock: number;
+    name: string = '';
+    stock: number = 0;
     setInventory(inventory: IInventory) {
         this.id = inventory.id;
         this.name = inventory.name;

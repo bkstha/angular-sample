@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Inventory } from './Inventory';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,18 +16,21 @@ export class InventoryService {
   }
 
   private _init(): void {
-    this.httpClient.get(this._jsonUrl).subscribe(data => {
-      console.log("initializing default inventory list");
-      this._inventoryList = data as [Inventory];
-    });
+    this.httpClient.get<Array<Inventory>>(this._jsonUrl)
+      .subscribe(data => {
+        console.log("initializing default inventory list");
+        this._inventoryList = data;
+      });
   }
 
-  public getInventoryList() {
-    return this._inventoryList.map((obj, index) => ({ ...obj, index: (index + 1) }));
-  }
-
-  public getInventoryById(id) {
-    return this._inventoryList.filter(data => data.id === id);
+  getInventoryList(): Observable<Array<Inventory>> {
+    if (this._inventoryList) {
+      return new Observable(observer => {
+        observer.next(this._inventoryList);
+      })
+    } else {
+      return this.httpClient.get<Array<Inventory>>(this._jsonUrl);
+    }
   }
 
   public addNewInventory(form: Inventory) {
