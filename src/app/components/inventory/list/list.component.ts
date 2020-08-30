@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { InventoryService } from '../../../services/inventory/inventory.service'
+import { Component } from '@angular/core';
+import { InventoryService } from '../../../services/inventory/inventory.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list',
-  templateUrl: './list.component.html'
+  templateUrl: './list.component.html',
 })
 export class ListComponent {
-
-  constructor(private inventoryService: InventoryService) { }
-  public editRoute: string = "inventory/edit";
+  constructor(
+    private inventoryService: InventoryService,
+    private readonly router: Router,
+    private readonly activatedRoute: ActivatedRoute
+  ) {}
+  public editRoute: string = 'edit';
 
   public colData = [
     { field: 'index', header: '#' },
     { field: 'name', header: 'Name' },
-    { field: 'stock', header: 'Stock' }
+    { field: 'stock', header: 'Stock' },
   ];
 
   public getInventoryList() {
@@ -21,9 +25,14 @@ export class ListComponent {
     return this.inventoryService.getInventoryList();
   }
 
-  public deleteInventory = (id: any) => {
-    console.log("deleting item with id: " + id);
+  public deleteInventory(id: any): void {
+    console.log('deleting item with id: ' + id);
     this.inventoryService.deleteInventory(id);
   }
 
+  public editActionClicked(id: any): void {
+    this.router.navigate(['../edit', { id }], {
+      relativeTo: this.activatedRoute,
+    });
+  }
 }

@@ -6,18 +6,20 @@ import { NewComponent } from './new/new.component';
 
 const routes: Routes = [
   {
-    path: '', component: InventoryComponent,
+    path: '',
+    component: InventoryComponent,
     children: [
+      { path: 'edit', component: NewComponent },
       { path: 'lists', component: ListComponent },
       { path: 'new', component: NewComponent },
-      { path: 'edit/:id', component: NewComponent },
+
       { path: '**', redirectTo: 'lists' },
-    ]
-  }
-]
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class InventoryRoutingModule { }
+export class InventoryRoutingModule {}
