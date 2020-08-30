@@ -18,14 +18,7 @@ export class NewComponent implements OnInit {
   ) { }
   private activeId: number;
   private inventory: Inventory;
-  public inventoryForm: FormGroup = this.fb.group({
-    name: ['', Validators.required],
-    stock: [
-      0,
-      [Validators.required, Validators.min(0)],
-    ],
-    id: [''],
-  });
+  public inventoryForm: FormGroup; 
 
   ngOnInit(): void {
     this.initializeInventory();
@@ -43,11 +36,9 @@ export class NewComponent implements OnInit {
   }
   private initializeInventory() {
     this.activeId = this.route.snapshot.params.id;
-    console.log("active id: ", this.activeId)
     if (this.activeId) {
       this.inventoryService.getInventoryList().subscribe(result => {
         this.inventory = result.filter(data => data.id == this.activeId)[0];
-        console.log(this.inventory);
         this.resetForm();
       });
     } else {
